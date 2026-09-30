@@ -14,19 +14,18 @@ N8N_REPO=/path/to/n8n npm run verify   # slide count, code-block length, notes, 
 
 ## Before presenting
 
-- Fill in the `[Presenter: …]` placeholders:
-  - Slide 5 (history): founding year, team size, key milestones, and how the team maps to the three Ecosystem teams.
-  - Slide 11 (people): the role and "ask me about" for each person. Also check that the member list is current.
-  - `SCRIPT.md` slide 1 (your name) and slides 5 and 11.
+- Put your name on slide 1 of `SCRIPT.md`.
+- Slide 11 is a screenshot of a real workflow, "Onboarding: running example", in the personal project on berniwittmann.app.n8n.cloud. If you change the workflow, retake the screenshot into `public/running-example.png`. It was taken with the Slack missing-credential warning and the canvas controls hidden.
 - Slides stay light on purpose. Speaker notes (presenter view) hold the details and file paths. `SCRIPT.md` holds the spoken script for the recording.
 
 ## Layout
 
 | Path | What it is |
 | --- | --- |
-| `slides.md` | The deck: 39 slides in 6 numbered sections |
+| `slides.md` | The deck: 36 slides in 6 numbered sections |
 | `SCRIPT.md` | Speakable script, one section per slide |
-| `style.css`, `setup/mermaid.ts`, `public/` | n8n theme, copied unchanged from the n8n Connect deck |
+| `style.css`, `setup/mermaid.ts`, `public/n8n-*.svg` | n8n theme, copied unchanged from the n8n Connect deck |
+| `public/running-example.png` | Canvas screenshot of the running example workflow |
 | `global-bottom.vue` | Footer, same as the Connect deck, with the label "Nodes team · Engineering onboarding" |
 | `scripts/verify.mjs` | Automated checks for the goal facts |
 
@@ -34,6 +33,6 @@ N8N_REPO=/path/to/n8n npm run verify   # slide count, code-block length, notes, 
 
 ## Sources
 
-- Notion: Team Nodes → "Nodes onboarding" (engineering source of truth), "Team Nodes" (mission, ownership, members, channels), "Ecosystem — Domain & Team Structure", "Nodes team Q3-2026 learnings & Q4 outlook".
+- Notion: "Engineering Teams - Areas of Ownership" (ownership and neighbour teams), Team Nodes → "Nodes onboarding" (engineering source of truth), "Team Nodes" (mission, ownership, members, channels), "Ecosystem — Domain & Team Structure", "Nodes team Q3-2026 learnings & Q4 outlook".
 - Onboarding revamp meeting and FigJam brainstorm (30 Sep 2026).
 - Code references reflect `n8n` `master` @ `52db75973e` (30 Sep 2026). `npm run verify` checks that every referenced path still exists.

@@ -23,7 +23,7 @@ layout: cover
 <div class="cover-wrap">
   <img src="/n8n-logo-white.svg" class="cover-logo" alt="n8n" />
   <div class="cover-kicker">Engineering onboarding</div>
-  <h1 class="cover-title">How <span class="accent">nodes</span> work</h1>
+  <h1 class="cover-title">How <span class="accent">Nodes</span> work</h1>
   <div class="cover-sub">…and the team that connects n8n to everything else</div>
   <div class="cover-pills">
     <span class="pill">Nodes team</span>
@@ -51,11 +51,9 @@ layout: cover
   <div class="card agenda orange"><h3>06</h3><h2>AI nodes</h2><p class="muted mt-2">Connection types, supplyData</p></div>
 </div>
 
-<p class="statement mt-8">One <span class="accent">running example</span> ties it all together.</p>
 
 <!--
 - Two halves: first who we are, then the engineering deep dive
-- The deep dive follows one workflow that we come back to in each section
 - Not covered on slides: testing, error handling, local dev, community nodes. Links at the end
 -->
 
@@ -83,68 +81,91 @@ layout: section
     <p>Build a thriving node ecosystem: empower developers to ship high-quality, relevant integrations, and let users build business-critical workflows through a powerful core node experience.</p>
   </div>
   <div class="card pink">
-    <h3>Where we're heading</h3>
-    <p>We build the tools that agents and people use to get things done: integration and core nodes, MCP, browser and computer use, and the human touchpoints of automation like forms, channels and approvals.</p>
+    <h3>Where we're heading: Ecosystem</h3>
+    <p>Ecosystem is how n8n extends its reach: <strong>connecting</strong>, <strong>abstracting</strong>, <strong>embedding</strong> and <strong>surfacing</strong> the external capabilities users depend on. Our part: the tools agents and people use to get things done.</p>
   </div>
 </div>
 
 <!--
 - The slogan came out of our onboarding revamp discussion. Nodes are the artifact; connecting n8n to other systems is the job
 - Left: the official mission from the Team Nodes Notion page
-- Right: the Q4 2026 mission reframe draft ("Nodes team Q3-2026 learnings & Q4 outlook")
+- Right: the Ecosystem domain definition ("Ecosystem — Domain & Team Structure") plus the Q4 2026 mission reframe draft
 - The shift: we used to mean "nodes on a canvas"; now it's canvas, agents, n8n Assistant and MCP
 -->
 
 ---
 
-# From nodes to <span class="accent">ecosystem</span>
+# From Nodes to <span class="accent">Ecosystem</span>
 
-<div class="timeline mt-6" style="grid-template-columns: repeat(4, 1fr)">
-  <div class="tl-item"><div class="tl-dot"></div><div class="tl-ver">Team Nodes</div><div class="tl-txt">Build and maintain the nodes — the way n8n reaches other tools</div></div>
-  <div class="tl-item"><div class="tl-dot"></div><div class="tl-ver">Community</div><div class="tl-txt">Community and verified nodes: others build connections too</div></div>
-  <div class="tl-item"><div class="tl-dot"></div><div class="tl-ver">2026 · Ecosystem</div><div class="tl-txt">Domain split into Community, Ecosystem Experience, Ecosystem Services</div></div>
-  <div class="tl-item ga"><div class="tl-dot"></div><div class="tl-ver">Q3–Q4 2026</div><div class="tl-txt">MCP registry, browser use, channels for agents</div></div>
+<div class="split-tree">
+  <div class="card root"><h3>Before</h3><h2>Team Nodes</h2><p>Every integration: first-party nodes, community nodes, AI Gateway</p></div>
+  <svg class="links" viewBox="0 0 900 44" preserveAspectRatio="none"><path d="M450 0 V22 M150 22 H750 M150 22 V44 M450 22 V44 M750 22 V44" /></svg>
+  <div class="grid grid-cols-3 gap-5">
+    <div class="card"><h3>Split off</h3><h2>Community Engineering</h2><p>Community PRs, verified community nodes, managed OAuth credentials</p></div>
+    <div class="card pink"><h3>Today</h3><h2>Nodes</h2><p>First-party nodes, credentials, MCP registry, browser + computer use, agent channels</p></div>
+    <div class="card"><h3>Split off</h3><h2>Relay</h2><p>n8n Connect: AI Gateway and managed services, no credential setup</p></div>
+  </div>
 </div>
 
-<blockquote class="mt-10"><p>The name always described the <strong>artifact</strong>, not the <strong>domain</strong>. Nodes were never the point — reaching the tools users live in was.</p></blockquote>
+<blockquote class="mt-5"><p>The name always described the <strong>artifact</strong>, not the <strong>domain</strong>. Nodes were never the point — reaching the tools users live in was.</p></blockquote>
 
-<p class="mt-4"><span class="pill orange">[Presenter: add founding year, team size over time, key milestones]</span></p>
+<style>
+.split-tree .root { width: 44%; margin: 0 auto; text-align: center; }
+.split-tree .links { display: block; width: 100%; height: 44px; }
+.split-tree .links path { fill: none; stroke: var(--n8n-pink); stroke-width: 2; vector-effect: non-scaling-stroke; opacity: .7; }
+</style>
 
 <!--
-- Source: Notion "Ecosystem — Domain & Team Structure" (Mar 2026) and "Nodes team Q3-2026 learnings & Q4 outlook"
-- Ecosystem = "how n8n extends its reach": connecting (nodes, APIs), abstracting (AI Gateway / n8n Connect), embedding (voice, browser), surfacing (marketplace)
-- Three teams in the domain: Community (open contribution layer), Ecosystem Experience (AI Gateway, managed access), Ecosystem Services (node framework, standards, first-party integrations)
-- [Presenter: fill in the early history and how the current Nodes team maps to the three teams]
+- We used to be one team for every integration: first-party nodes, community nodes and the AI Gateway
+- The domain grew, so it split into three teams (Notion "Ecosystem — Domain & Team Structure", "Engineering Teams - Areas of Ownership")
+- Community Engineering: community PRs, GitHub triage, verified community nodes, managed OAuth credentials
+- Relay: n8n Connect (AI Gateway + services, shown as "Gateway credits"), no credential setup for users
+- Nodes: first-party nodes, credentials, MCP registry, Local Gateway (browser + computer use), agent channels
+- We still work closely together: shared bug backlog with Community Engineering and Relay
 -->
 
 ---
 
 # The ecosystem map
 
-```mermaid {scale: 0.85}
-flowchart LR
-  subgraph surfaces["Where users build"]
-    direction TB
-    C["Canvas workflows"]
-    AG["AI Agent node"]
-    FA["First-class Agents"]
-    AS["n8n Assistant"]
-  end
-  subgraph ours["What we build"]
-    direction TB
-    N["Integration + core nodes"]
-    M["MCP: client, server, registry"]
-    B["Browser + computer use"]
-    CH["Channels: Slack, Teams, Telegram…"]
-  end
-  X["Third-party services<br/>and the people using them"]
-  surfaces --> ours --> X
-```
+<div class="flow eco">
+  <div class="fstep">
+    <div class="n">Where users build</div>
+    <div class="t">Surfaces</div>
+    <div class="row">🧩 Canvas workflows</div>
+    <div class="row">🤖 AI Agent node</div>
+    <div class="row">✨ First-class Agents</div>
+    <div class="row">💬 n8n Assistant</div>
+  </div>
+  <div class="fstep pink">
+    <div class="n">What we build</div>
+    <div class="t">Connections</div>
+    <div class="row">🔌 Integration nodes</div>
+    <div class="row">🗂️ MCP registry</div>
+    <div class="row">🌐 Browser + computer use</div>
+    <div class="row">📣 Agent channels</div>
+  </div>
+  <div class="fstep">
+    <div class="n">Outside world</div>
+    <div class="t">Services and people</div>
+    <div class="row">☁️ SaaS APIs</div>
+    <div class="row">🗄️ Databases</div>
+    <div class="row">🖥️ Websites without an API</div>
+    <div class="row">🙋 People in Slack, Teams…</div>
+  </div>
+</div>
+
+<style>
+.eco .fstep { padding: 0.9rem 1rem 1rem; }
+.eco .fstep .t { font-size: 1.05rem; margin-bottom: 0.6rem; }
+.eco .row { margin-top: 0.45rem; padding: 0.45rem 0.65rem; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text); font-size: 0.82rem; }
+.eco .fstep.pink .row { border-color: rgba(234, 75, 113, 0.35); }
+</style>
 
 <!--
 - Left: the places a user builds something in n8n
 - Middle: the pieces our team owns that reach outside n8n
-- Right: the outside world: APIs, SaaS tools, browsers, chat apps, the humans on the other end
+- Right: the outside world: APIs, databases, websites, and the humans on the other end
 - n8n Assistant (Instance AI in code) still produces workflows made of our nodes. A bug in what the Assistant built is often a node bug
 - First-class Agents use our MCP tools and channels directly, no canvas involved
 -->
@@ -153,21 +174,30 @@ flowchart LR
 
 # What we <span class="accent">own</span>
 
-<div class="grid grid-cols-4 gap-4">
-  <div class="card pink"><span class="icon">🧩</span><h2>Integration nodes</h2><p>Slack, Google Sheets, HubSpot… 400+ built-in</p></div>
-  <div class="card"><span class="icon">⚙️</span><h2>Core nodes</h2><p>Code, HTTP Request, IF, Merge, triggers</p></div>
-  <div class="card"><span class="icon">🌍</span><h2>Community nodes</h2><p>Loading, vetting, verified nodes</p></div>
-  <div class="card purple"><span class="icon">🔌</span><h2>MCP</h2><p>Client Tool, Server Trigger, Registry</p></div>
-  <div class="card orange"><span class="icon">🤖</span><h2>AI provider nodes</h2><p>Standalone OpenAI, Anthropic, Gemini…</p></div>
-  <div class="card"><span class="icon">📏</span><h2>Evaluation nodes</h2><p>Evaluate workflows and agents</p></div>
-  <div class="card mint"><span class="icon">🌐</span><h2>Agent capabilities</h2><p>Browser use, computer use, channels</p></div>
-  <div class="card"><span class="icon">⚡</span><h2>Building experience</h2><p>Quick Connect, schema preview</p></div>
+<div class="grid grid-cols-5 gap-3">
+  <div class="card pink"><span class="icon">🧩</span><h2>First-party nodes</h2><p>Slack, Google Sheets, HubSpot… 400+ built-in</p></div>
+  <div class="card"><span class="icon">🔑</span><h2>Credentials</h2><p>Auth, OAuth flows, credential tests</p></div>
+  <div class="card purple"><span class="icon">🔌</span><h2>MCP</h2><p>Registry, Client Tool, Server Trigger</p></div>
+  <div class="card mint"><span class="icon">🌐</span><h2>Local Gateway</h2><p>Browser use, computer use</p></div>
+  <div class="card orange"><span class="icon">📣</span><h2>Agent channels</h2><p>Slack, Teams, Telegram…</p></div>
 </div>
 
+<h3 class="mt-6">Our neighbours</h3>
+<div class="grid grid-cols-4 gap-3">
+  <div class="card"><h2>Community Engineering</h2><p class="muted">Community nodes, community PRs</p></div>
+  <div class="card"><h2>Relay</h2><p class="muted">n8n Connect, AI Gateway</p></div>
+  <div class="card"><h2>Catalysts</h2><p class="muted">HTTP Request, Webhook, execution engine</p></div>
+  <div class="card"><h2>Adore</h2><p class="muted">Code node, templates</p></div>
+</div>
+
+<p class="mt-4">Reach us: <code>#team-nodes</code> · reviews: <code>#team-nodes-review</code></p>
+
 <!--
-- Source: "We own" list on the Team Nodes Notion page
-- If a bug or question lands on one of these, it's ours; route it to #team-nodes
+- Source: Notion "Engineering Teams - Areas of Ownership" (verified) plus the Team Nodes page
+- Nodes: first-party nodes, credentials, MCP registry, Local Gateway (browser + computer use); agent channels are our current project work
+- Neighbours matter for routing: a bug in HTTP Request or Webhook goes to Catalysts, Code node to Adore, community nodes to Community Engineering, Gateway credits to Relay
 - 400+: packages/nodes-base/package.json registers 442 node files (actions and triggers) at n8n master @ 52db75973e
+- Questions and bugs: #team-nodes. PR reviews: #team-nodes-review
 -->
 
 ---
@@ -250,56 +280,22 @@ flowchart LR
 
 ---
 
-# The <span class="accent">people</span>
-
-<div class="grid grid-cols-4 gap-3">
-  <div class="card pink"><h2>Shireen Missi</h2><p class="muted">Team manager</p></div>
-  <div class="card"><h2>Elias Meire</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Bernhard Wittmann</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Toni Devine</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Roman Davydchuk</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Yehor Kardash</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Dimitri Lavrenük</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Alejandro Carrasco</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Vlad Morozov</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>David Arens</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card"><h2>Jake Ranallo</h2><p class="muted">[Presenter: role · ask about]</p></div>
-  <div class="card mint"><h2>Reach us</h2><p><code>#team-nodes</code><br/><code>#team-nodes-review</code></p></div>
-</div>
-
-<!--
-- Members from the Team Nodes Notion page; manager per the page's "Reach us" callout
-- [Presenter: fill in role and "ask me about" for each person; check the list is current]
-- #team-nodes for questions and bug reports, #team-nodes-review for PR review requests
-- Rituals: daily standup 10:15 CET, weekly team sync Thursday, monthly retro
--->
-
----
-
 # The running <span class="accent">example</span>
 
-```mermaid {scale: 0.9}
-flowchart LR
-  G["📧 Gmail Trigger"] --> I{"IF<br/>from a customer?"}
-  I -- true --> A["🤖 AI Agent<br/>summarise + look up"]
-  I -- false --> S2["(ignored)"]
-  A --> SL["💬 Slack<br/>post to #support"]
-  M["OpenAI Chat Model"] -. ai_languageModel .-> A
-  T["Google Sheets tool<br/>customer lookup"] -. ai_tool .-> A
-  classDef trig fill:#241d33,stroke:#ff6900,color:#f5f5f5
-  classDef ai fill:#241d33,stroke:#8e51ff,color:#f5f5f5
-  class G trig
-  class M,T ai
-```
+<img src="/running-example.png" alt="Workflow: New email (Gmail Trigger) → From a customer? (IF) → Summarise email (AI Agent with OpenAI model and Customer lookup tool) → Post to #support (Slack)" class="example-shot" />
 
-<p class="text-center muted small mt-2">New customer email → decide → summarise with AI → notify the team</p>
+<p class="text-center muted small mt-4">New customer email → decide → summarise with AI → notify the team</p>
+
+<style>
+.example-shot { display: block; margin: 0 auto; max-height: 330px; border-radius: 12px; border: 1px solid var(--border); }
+</style>
 
 <!--
-- A small, realistic support workflow. We'll come back to it in every section
-- Gmail Trigger: a polling trigger (section 03)
-- IF: two outputs, true and false (section 04)
-- AI Agent with a model and a tool attached through AI connections (section 06)
-- Slack: a classic programmatic integration node (section 05)
+- A real workflow, built in n8n. We'll come back to it in every section
+- New email: Gmail Trigger, a polling trigger (section 03)
+- From a customer?: IF with two outputs, true and false (section 04)
+- Summarise email: AI Agent with a model and a tool attached through AI connections (section 06)
+- Post to #support: Slack, a classic programmatic integration node (section 05)
 -->
 
 ---
@@ -410,30 +406,42 @@ export class Example implements INodeType {
 
 # Node <span class="accent">types</span>
 
-```mermaid {scale: 1}
-flowchart TD
-  N(["Node"]) --> T & R & A
-  subgraph T["Trigger nodes · start a workflow"]
-    direction TB
-    W["Webhook · webhook()<br/>GitHub Trigger"] ~~~ P["Polling · poll()<br/>Gmail Trigger"] ~~~ G["Generic · trigger()<br/>MQTT, Schedule"]
-  end
-  subgraph R["Regular nodes · transform items"]
-    direction TB
-    PR["Programmatic · execute()<br/>Slack, Discord"] ~~~ D["Declarative · routing<br/>n8n node"]
-  end
-  subgraph A["AI sub-nodes · plug into an agent"]
-    direction TB
-    S["supplyData()<br/>OpenAI Chat Model, Simple Memory"]
-  end
-  classDef trig stroke:#ff6900
-  classDef ai stroke:#8e51ff
-  class W,P,G trig
-  class S ai
-```
+<div class="type-tree">
+  <div class="root-pill">Node</div>
+  <svg class="links" viewBox="0 0 900 40" preserveAspectRatio="none"><path d="M450 0 V20 M150 20 H750 M150 20 V40 M450 20 V40 M750 20 V40" /></svg>
+  <div class="grid grid-cols-3 gap-5">
+    <div class="card orange">
+      <h3>Trigger nodes</h3><p class="muted">Start a workflow</p>
+      <div class="leaf"><b>Webhook</b><code>webhook()</code><span>GitHub Trigger</span></div>
+      <div class="leaf"><b>Polling</b><code>poll()</code><span>Gmail Trigger</span></div>
+      <div class="leaf"><b>Generic</b><code>trigger()</code><span>MQTT, Schedule</span></div>
+    </div>
+    <div class="card pink">
+      <h3>Regular nodes</h3><p class="muted">Transform items</p>
+      <div class="leaf"><b>Programmatic</b><code>execute()</code><span>Slack, Discord</span></div>
+      <div class="leaf"><b>Declarative</b><code>routing</code><span>n8n node</span></div>
+    </div>
+    <div class="card purple">
+      <h3>AI sub-nodes</h3><p class="muted">Plug into an agent</p>
+      <div class="leaf"><b>Sub-node</b><code>supplyData()</code><span>OpenAI Chat Model, Simple Memory</span></div>
+    </div>
+  </div>
+</div>
+
+<style>
+.type-tree .root-pill { width: max-content; margin: 0 auto; padding: 0.35rem 1.4rem; border-radius: 999px; border: 1px solid var(--n8n-pink); background: var(--surface); color: var(--text); font-weight: 700; }
+.type-tree .links { display: block; width: 100%; height: 40px; }
+.type-tree .links path { fill: none; stroke: var(--n8n-pink); stroke-width: 2; vector-effect: non-scaling-stroke; opacity: .7; }
+.type-tree .card p.muted { margin-bottom: 0.5rem; }
+.type-tree .leaf { display: grid; grid-template-columns: 1fr auto; gap: 0.1rem 0.5rem; margin-top: 0.45rem; padding: 0.45rem 0.6rem; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+.type-tree .leaf b { color: var(--text); font-size: 0.85rem; }
+.type-tree .leaf code { font-size: 0.68rem; justify-self: end; }
+.type-tree .leaf span { grid-column: 1 / -1; color: var(--text-dim); font-size: 0.74rem; }
+</style>
 
 <!--
 - Keep this tree in mind; the next sections walk down each branch
-- Running example: Gmail Trigger = polling, IF + Slack = programmatic, OpenAI Chat Model + Sheets tool = AI sub-nodes
+- Running example: New email = polling trigger, IF + Slack = programmatic, OpenAI + Customer lookup = AI sub-nodes
 - The AI Agent node itself is a regular programmatic node (execute) that consumes sub-nodes
 - One node can be several things: many nodes are usable as tools, and some offer trigger + action variants
 -->
@@ -495,26 +503,14 @@ layout: section
   <div class="fstep"><div class="n">Deactivate</div><div class="t"><code>delete()</code></div><div class="d">Unregister the webhook</div></div>
 </div>
 
-<div class="grid grid-cols-2 gap-8 mt-8 items-center">
-<div>
+<p class="statement" style="margin-top:2.5rem">Publish registers, unpublish <span class="accent">cleans up.</span></p>
+<p class="text-center mt-3">The node describes the lifecycle. n8n calls it at the right time, so no subscription is left behind.</p>
 
-```ts
-const expected = createHmac('sha256', secret)
-  .update(rawBody)
-  .digest('hex');
-const valid = timingSafeEqual(
-  Buffer.from(expected),
-  Buffer.from(signature),
-);
-if (!valid) return { workflowData: [] }; // do not fire
-```
+<div class="card mt-8 small-note"><h3>Also</h3><p>Services sign their requests. Check the signature in <code>webhook()</code> before you emit items. <span class="file-ref">nodes/GitHub/GithubTriggerHelpers.ts</span></p></div>
 
-</div>
-<div>
-  <p class="big-line">Always <strong>verify the signature</strong> before you trust the payload.</p>
-  <div class="file-ref mt-4">nodes/GitHub/GithubTriggerHelpers.ts</div>
-</div>
-</div>
+<style>
+.small-note { padding: 0.7rem 1rem; }
+</style>
 
 <!--
 - The lifecycle lives in webhookMethods: checkExists / create / delete
@@ -638,7 +634,7 @@ interface INodeExecutionData {
 
 </div>
 <div>
-  <div class="card mb-4"><h3>json</h3><p>The data. <code>{ from, subject, body }</code> for each email</p></div>
+  <div class="card mb-4"><h3>json</h3><p>The data. <code>{ From, Subject, snippet }</code> for each email</p></div>
   <div class="card mb-4"><h3>binary</h3><p>Files: attachments, PDFs, images</p></div>
   <div class="card"><h3>pairedItem</h3><p>Lineage back to the input item</p></div>
 </div>
@@ -646,7 +642,7 @@ interface INodeExecutionData {
 
 <!--
 - Nodes receive an array of items and return an array of items
-- Gmail Trigger with 3 new emails → 3 items → IF runs its logic once per item
+- New email (Gmail Trigger) finds 3 emails → 3 items → IF runs its logic once per item
 - json must survive JSON.stringify: no class instances, no Buffers
 - binary holds metadata only (fileName, mimeType, id); the bytes live in the filesystem or S3 store
 - pairedItem also accepts a plain number as shorthand (omitted on the slide)
@@ -717,7 +713,7 @@ return [returnData];
 </div>
 <div class="col-span-2">
   <p class="big-line">Read parameters <strong>per item.</strong></p>
-  <p class="mt-4" v-pre><code>={{ $json.subject }}</code> resolves differently for every email.</p>
+  <p class="mt-4" v-pre>In our workflow, <strong>Text</strong> is <code>={{ $json.output }}</code>: a different summary for every item.</p>
   <div class="file-ref mt-4">nodes/Slack/V2/SlackV2.node.ts</div>
 </div>
 </div>
@@ -763,23 +759,37 @@ returnData.push({ json: {}, binary: { data: file }, pairedItem: { item: i } });
 
 # <code>pairedItem</code>: item <span class="accent">lineage</span>
 
-```mermaid {scale: 0.9}
-flowchart RL
-  S0["Slack · item 0"] -. "pairedItem 0" .-> A0["AI Agent · item 0"]
-  S1["Slack · item 1"] -. "pairedItem 1" .-> A1["AI Agent · item 1"]
-  A0 -. "pairedItem 0" .-> I0["IF · item 0"]
-  A1 -. "pairedItem 2" .-> I2["IF · item 2"]
-  I0 -.-> G0["Gmail · email 0"]
-  I2 -.-> G2["Gmail · email 2"]
-```
+<div class="lineage">
+  <div class="col"><div class="h">New email</div><div class="it">0 · Email A <em>acme</em></div><div class="it off">1 · Email B</div><div class="it hl">2 · Email C <em>acme</em></div></div>
+  <div class="arrow">→</div>
+  <div class="col"><div class="h">IF · true</div><div class="it">0 · A <em>← 0</em></div><div class="it hl">1 · C <em>← 2</em></div></div>
+  <div class="arrow">→</div>
+  <div class="col"><div class="h">Summarise email</div><div class="it">0 · summary A <em>← 0</em></div><div class="it hl">1 · summary C <em>← 1</em></div></div>
+  <div class="arrow">→</div>
+  <div class="col"><div class="h">Post to #support</div><div class="it">0 · post A <em>← 0</em></div><div class="it hl">1 · post C <em>← 1</em></div></div>
+</div>
 
-<p class="text-center mt-4" v-pre><code>{{ $('Gmail Trigger').item.json.subject }}</code> in Slack follows these links back.</p>
+<div class="grid grid-cols-2 gap-5 mt-6">
+  <div class="card mint"><h3>Works</h3><p v-pre>Slack item 1 asks for <code>{{ $('New email').item.json.Subject }}</code>. n8n follows 1 → 1 → 2 and finds <strong>Email C</strong>.</p></div>
+  <div class="card pink"><h3>Breaks</h3><p>A node returns new items without <code>pairedItem</code>. The chain stops, and the user sees <strong>"Can't determine which item to use"</strong>.</p></div>
+</div>
+
+<style>
+.lineage { display: grid; grid-template-columns: 1fr 24px 1fr 24px 1fr 24px 1fr; align-items: start; }
+.lineage .arrow { color: var(--n8n-pink); font-weight: 700; text-align: center; padding-top: 2.1rem; }
+.lineage .h { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.4rem; }
+.lineage .it { margin-top: 0.35rem; padding: 0.4rem 0.6rem; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: 0.8rem; display: flex; justify-content: space-between; }
+.lineage .it em { font-style: normal; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--text-dim); }
+.lineage .it.off { opacity: 0.4; }
+.lineage .it.hl { border-color: var(--n8n-pink); background: linear-gradient(160deg, rgba(234, 75, 113, 0.16), var(--surface) 70%); }
+.lineage .it.hl em { color: #ff9db4; }
+</style>
 
 <!--
-- Each output item points at the input item it came from
-- Expressions like $('Node').item walk this chain backwards
-- Here email 1 went to IF's false branch, so AI Agent item 1 maps back to IF item 2
-- Missing or wrong pairedItem → "Can't determine which item to use" in the UI
+- Each output item stores which input item it came from: "← 2" means pairedItem 2
+- Email B was not from a customer, so IF dropped it. Now the indexes no longer line up: IF item 1 is Gmail item 2
+- Expressions like $('New email').item walk this chain backwards, so Slack still finds the right email
+- If a node creates items and forgets pairedItem, the chain breaks and the UI shows "Can't determine which item to use"
 - The team keeps a "pairedItem Issues Log" in Notion; it's a recurring bug class
 -->
 
@@ -935,29 +945,44 @@ export class OpenAiApi implements ICredentialType {
 # <span class="accent">Versioning</span>
 
 <div class="grid grid-cols-2 gap-6">
-  <div class="card">
-    <h3>Light</h3>
-    <h2><code>version: [3, 3.1, 3.2, …]</code></h2>
-    <p class="mt-3">One class. Branch on <code>this.getNode().typeVersion</code> where behaviour differs.</p>
-    <p class="muted mt-3">Small, backwards-compatible changes</p>
-    <div class="file-ref mt-3">nodes/Set/v2/SetV2.node.ts</div>
-  </div>
-  <div class="card pink">
-    <h3>Full</h3>
-    <h2><code>VersionedNodeType</code></h2>
-    <p class="mt-3">A wrapper that dispatches to separate classes in <code>v1/</code>, <code>v2/</code>…</p>
-    <p class="muted mt-3">Breaking changes and rewrites</p>
-    <div class="file-ref mt-3">nodes/Set/Set.node.ts</div>
-  </div>
+<div class="card">
+  <h3>Light · one class</h3>
+
+```ts
+version: [3, 3.1, 3.2, 3.3, 3.4, 3.5],
+
+// behaviour changes behind a version check
+if (node.typeVersion < 3.3) {
+  // old behaviour
+}
+```
+
+  <p class="mt-2">Small, backwards-compatible changes.</p>
+  <div class="file-ref mt-2">nodes/Set/v2/manual.mode.ts</div>
+</div>
+<div class="card pink">
+  <h3>Full · separate files</h3>
+
+```text
+Set/
+├── Set.node.ts        VersionedNodeType wrapper
+├── v1/SetV1.node.ts   versions 1 – 2
+└── v2/SetV2.node.ts   versions 3 – 3.5
+```
+
+  <p class="mt-2">Breaking changes and rewrites. The old files stay untouched.</p>
+  <div class="file-ref mt-2">nodes/Set/Set.node.ts</div>
+</div>
 </div>
 
-<p class="statement mt-10">Existing workflows <span class="accent">never change</span> behaviour.</p>
+<p class="statement mt-8">Existing workflows <span class="accent">should never</span> change behaviour.</p>
 
 <!--
-- Every node in a saved workflow stores its typeVersion; old workflows keep running the old behaviour forever
+- Every node in a saved workflow stores its typeVersion; old workflows keep running the old code path
 - New nodes added to the canvas get the latest (defaultVersion)
+- Light: one class declares several versions and checks typeVersion where behaviour differs (Set v2 checks < 3.3 in manual.mode.ts)
+- Full: Set.node.ts is a VersionedNodeType that maps versions to SetV1 and SetV2, each in its own folder
 - Changing behaviour without a version bump is one of the easiest ways to break customers
-- Set node: wrapper Set.node.ts switches between SetV1 and SetV2, and SetV2 itself uses light versions 3 → 3.5
 -->
 
 ---
@@ -981,11 +1006,11 @@ layout: section
 
 ```mermaid {scale: 1}
 flowchart LR
-  IN["IF · true"] -- main --> AG["🤖 AI Agent"]
-  AG -- main --> OUT["Slack"]
-  LM["OpenAI Chat Model"] -. ai_languageModel .-> AG
+  IN["From a customer? · true"] -- main --> AG["🤖 Summarise email"]
+  AG -- main --> OUT["Post to #support"]
+  LM["OpenAI"] -. ai_languageModel .-> AG
   MEM["Simple Memory"] -. ai_memory .-> AG
-  T1["Google Sheets tool"] -. ai_tool .-> AG
+  T1["Customer lookup"] -. ai_tool .-> AG
   T2["MCP Client tool"] -. ai_tool .-> AG
 ```
 
@@ -995,6 +1020,7 @@ flowchart LR
     <li>Regular nodes use <code>main</code></li>
     <li>AI nodes add typed ports: <code>ai_languageModel</code>, <code>ai_memory</code>, <code>ai_tool</code>, <code>ai_vectorStore</code>…</li>
     <li>Only matching types connect</li>
+    <li>Sub-nodes implement <code>supplyData()</code>: they hand the agent a model, memory or tool, not items</li>
   </ul>
   <div class="file-ref mt-4">NodeConnectionTypes · packages/workflow/src/interfaces.ts</div>
 </div>
@@ -1005,49 +1031,6 @@ flowchart LR
 - Declared in the description: inputs / outputs arrays, same as main
 - The canvas enforces the matching; that's why a model can't plug into a memory slot
 - AI nodes live in packages/@n8n/nodes-langchain
--->
-
----
-
-# <code>supplyData()</code> vs <code>execute()</code>
-
-<div class="grid grid-cols-2 gap-6">
-<div class="card purple">
-  <h3>Sub-node · supplyData</h3>
-
-```ts
-async supplyData(this: ISupplyDataFunctions) {
-  const { apiKey } =
-    await this.getCredentials('openAiApi');
-  return { response: new ChatOpenAI({ apiKey }) };
-}
-```
-
-  <p class="mt-2">Returns an <strong>object</strong> the agent uses.</p>
-  <div class="file-ref mt-2">nodes/llms/LMChatOpenAi/LmChatOpenAi.node.ts</div>
-</div>
-<div class="card">
-  <h3>Root node · execute</h3>
-
-```ts
-async execute(this: IExecuteFunctions) {
-  const model = await this
-    .getInputConnectionData('ai_languageModel', 0);
-  const tools = await getConnectedTools(this);
-  // run the agent loop per item
-}
-```
-
-  <p class="mt-2">Pulls sub-nodes, returns <strong>items</strong>.</p>
-  <div class="file-ref mt-2">nodes/agents/Agent/V2/AgentV2.node.ts</div>
-</div>
-</div>
-
-<!--
-- Sub-nodes don't process items; they hand the root node a ready-to-use object (a LangChain model, memory, tool)
-- The root (AI Agent) asks for them with getInputConnectionData and runs the loop
-- Snippets are simplified; the real model node wires tracing, retries and proxy settings
-- Paths are relative to packages/@n8n/nodes-langchain
 -->
 
 ---
@@ -1073,40 +1056,6 @@ async execute(this: IExecuteFunctions) {
 -->
 
 ---
-
-# Go <span class="accent">deeper</span>
-
-<div class="grid grid-cols-3 gap-5">
-  <div class="card pink">
-    <h3>Notion</h3>
-    <h2>Nodes onboarding</h2>
-    <p>Full reference: testing, error handling, local dev, community nodes</p>
-  </div>
-  <div class="card">
-    <h3>docs.n8n.io</h3>
-    <h2>Build a node</h2>
-    <p>Declarative + programmatic tutorials, UI elements, versioning</p>
-  </div>
-  <div class="card">
-    <h3>Community</h3>
-    <h2><code>npm create @n8n/node</code></h2>
-    <p>Scaffold a community node; starter repo <code>n8n-nodes-starter</code></p>
-  </div>
-</div>
-
-<div class="principles small-set mt-10">
-  <span>Testing</span><span>Error handling</span><span>Local dev</span><span>Community nodes</span><span>Webhook security</span><span>Resource mapper</span>
-</div>
-
-<!--
-- Everything we skipped lives in the Notion "Nodes onboarding" page (Team Nodes → Nodes onboarding)
-- Testing: unit tests with mocked IExecuteFunctions, NodeTestHarness workflow tests, Playwright e2e, real-API test workflows (/test-workflows on a PR)
-- Errors: NodeOperationError / NodeApiError with itemIndex; honour continueOnFail()
-- Local dev: pnpm dev from the repo root, N8N_DEV_RELOAD=true for node hot reload
-- Docs: https://docs.n8n.io/integrations/creating-nodes/build/
--->
-
----
 layout: end
 ---
 
@@ -1114,10 +1063,13 @@ layout: end
   <img src="/n8n-logo-white.svg" class="cover-logo" alt="n8n" />
   <h1 class="cover-title">Questions<span class="accent">?</span></h1>
   <div class="cover-sub">Find us in <code>#team-nodes</code></div>
+  <div class="muted" style="font-size:0.85rem;letter-spacing:0;margin-top:0.5rem">Go deeper: Notion → Team Nodes → <strong>Nodes onboarding</strong> · docs.n8n.io → Build a node</div>
 </div>
 
 <!--
 - Open floor
+- Everything we skipped lives in the Notion "Nodes onboarding" page: testing, error handling, local dev, community nodes
+- Docs: https://docs.n8n.io/integrations/creating-nodes/build/
 - Remind: recording + slides are linked from the Notion onboarding page
 - Nodes-team joiners: team-specific sessions (PR reviews, bug bashes) follow separately
 -->
