@@ -73,26 +73,41 @@ layout: section
 
 # Integrations, everywhere
 
-<div class="statement">Wherever n8n connects to the <span class="accent">outside world</span>,<br/>that's us.</div>
-
-<div class="grid grid-cols-2 gap-6 mt-10">
-  <div class="card">
+<div class="grid grid-cols-2 gap-10 items-center">
+<div>
+  <div class="meme">
+    <img src="https://media1.tenor.com/m/TedLBxWDekkAAAAC/buzz-woody.gif" alt="Buzz Lightyear shows Woody the view: integrations, integrations everywhere" />
+    <span class="cap top">Integrations</span>
+    <span class="cap bottom">Integrations everywhere</span>
+  </div>
+  <div class="file-ref mt-2">GIF via Tenor</div>
+</div>
+<div>
+  <p class="big-line">Wherever n8n connects to the <span class="accent">outside world</span>, that's us.</p>
+  <div class="card mt-6">
     <h3>Mission</h3>
     <p>Build a thriving node ecosystem: empower developers to ship high-quality, relevant integrations, and let users build business-critical workflows through a powerful core node experience.</p>
   </div>
-  <div class="card pink">
-    <h3>Where we're heading: Ecosystem</h3>
-    <p>Ecosystem is how n8n extends its reach: <strong>connecting</strong>, <strong>abstracting</strong>, <strong>embedding</strong> and <strong>surfacing</strong> the external capabilities users depend on. Our part: the tools agents and people use to get things done.</p>
-  </div>
+  <h3 class="mt-6">Where we're heading</h3>
+  <p class="heading-to"><span class="accent">Ecosystem</span></p>
+</div>
 </div>
 
+<style>
+.meme { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.meme img { display: block; width: 100%; }
+.meme .cap { position: absolute; left: 0; right: 0; text-align: center; font-weight: 900; font-size: 1.6rem; line-height: 1.1; text-transform: uppercase; color: #fff; letter-spacing: 0.02em; text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000; }
+.meme .cap.top { top: 0.6rem; }
+.meme .cap.bottom { bottom: 0.6rem; }
+.slidev-layout .heading-to { font-size: 2rem; font-weight: 900; letter-spacing: -0.03em; margin: 0; }
+</style>
+
 <!--
-- The slogan came out of our onboarding revamp discussion. Nodes are the artifact; connecting n8n to other systems is the job
-- Left: the official mission from the Team Nodes Notion page
-- Right: the Ecosystem domain definition ("Ecosystem — Domain & Team Structure") plus the Q4 2026 mission reframe draft
+- Slogan from our onboarding revamp discussion. Nodes are the artifact; connecting n8n to other systems is the job
+- Mission: the official one from the Team Nodes Notion page
+- Where we're heading: the Ecosystem domain, "how n8n extends its reach": connecting, abstracting, embedding and surfacing the services users depend on
 - The shift: we used to mean "nodes on a canvas"; now it's canvas, agents, n8n Assistant and MCP
 -->
-
 ---
 
 # From Nodes to <span class="accent">Ecosystem</span>
@@ -106,8 +121,6 @@ layout: section
     <div class="card"><h3>Split off</h3><h2>Relay</h2><p>n8n Connect: AI Gateway and managed services, no credential setup</p></div>
   </div>
 </div>
-
-<blockquote class="mt-5"><p>The name always described the <strong>artifact</strong>, not the <strong>domain</strong>. Nodes were never the point — reaching the tools users live in was.</p></blockquote>
 
 <style>
 .split-tree .root { width: 44%; margin: 0 auto; text-align: center; }

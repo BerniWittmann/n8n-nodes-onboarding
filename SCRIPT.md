@@ -26,11 +26,10 @@ Let's start with the team.
 
 ## 4. Integrations, everywhere
 
-Our short version is this: wherever n8n connects to the outside world, that's us.
-On the left is our official mission. It is about a healthy node ecosystem and a strong core node experience.
-On the right is where we are heading: the Ecosystem domain.
-Ecosystem is how n8n extends its reach. It connects to, abstracts, embeds and surfaces the services our users depend on.
-Our part is the tools that agents and people use to get things done.
+Integrations, integrations everywhere. That's us.
+Our short version: wherever n8n connects to the outside world, that's our team.
+Our mission is a healthy node ecosystem and a strong core node experience.
+And where we're heading has a name: Ecosystem.
 
 ## 5. From Nodes to Ecosystem
 
@@ -40,7 +39,6 @@ Community Engineering took community PRs, verified community nodes and managed O
 Relay took n8n Connect, the AI Gateway that lets users run services without their own credentials.
 Nodes kept first-party nodes and credentials, and added the MCP registry, browser and computer use, and agent channels.
 We still work closely together and share one bug backlog.
-The idea behind the change: nodes were never the point. Reaching the tools our users live in was.
 
 ## 6. The ecosystem map
 
