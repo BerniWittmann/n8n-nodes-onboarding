@@ -15,7 +15,7 @@ N8N_REPO=/path/to/n8n npm run verify   # slide count, code-block length, notes, 
 ## Before presenting
 
 - Put your name on slide 1 of `SCRIPT.md`.
-- Slide 11 is a screenshot of a real workflow, "Onboarding: running example", in the personal project on berniwittmann.app.n8n.cloud. If you change the workflow, retake the screenshot into `public/running-example.png`. It was taken with the Slack missing-credential warning and the canvas controls hidden.
+- Slides 11 and 34 are screenshots of a real workflow, "Onboarding: running example", in the personal project on berniwittmann.app.n8n.cloud. If you change the workflow, retake the screenshots into `public/running-example.png` and `public/connection-types.png` (the slide 34 tags are positioned by percentage). It was taken with the Slack missing-credential warning and the canvas controls hidden.
 - Slides stay light on purpose. Speaker notes (presenter view) hold the details and file paths. `SCRIPT.md` holds the spoken script for the recording.
 
 ## Layout
@@ -25,7 +25,7 @@ N8N_REPO=/path/to/n8n npm run verify   # slide count, code-block length, notes, 
 | `slides.md` | The deck: 36 slides in 6 numbered sections |
 | `SCRIPT.md` | Speakable script, one section per slide |
 | `style.css`, `setup/mermaid.ts`, `public/n8n-*.svg` | n8n theme, copied unchanged from the n8n Connect deck |
-| `public/running-example.png` | Canvas screenshot of the running example workflow |
+| `public/running-example.png`, `public/connection-types.png` | Canvas screenshots of the running example workflow (slides 11 and 34) |
 | `global-bottom.vue` | Footer, same as the Connect deck, with the label "Nodes team · Engineering onboarding" |
 | `scripts/verify.mjs` | Automated checks for the goal facts |
 

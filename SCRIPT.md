@@ -96,7 +96,7 @@ Our research shows people trust AI with their browser much more than with their 
 Now the engineering part. First, our example. This is a real workflow in n8n.
 A new email arrives in Gmail.
 An IF node checks if the email is from a customer.
-If yes, an AI Agent summarises it and looks up the customer in a Google Sheet.
+If yes, an AI Agent summarises it, with a model, a memory, and a Google Sheet to look up the customer.
 Then Slack posts the summary to the support channel.
 Every part of this workflow shows up again later.
 
@@ -158,7 +158,6 @@ If not, `create` registers our URL with the service.
 When an event arrives, `webhook` handles it.
 When the workflow is unpublished, `delete` removes the registration.
 The main point: the node only describes this lifecycle. n8n calls it at the right time, so no subscription is left behind.
-One more thing: services sign their requests, so check the signature before you emit items.
 
 ## 20. Polling triggers
 
@@ -273,7 +272,7 @@ Regular nodes connect with `main`.
 AI nodes add typed connections, like language model, memory and tool.
 Only matching types can connect. A model cannot go into a memory slot.
 Sub-nodes do not process items. They implement `supplyData` and hand the agent a ready object, like a chat model.
-In our example, the OpenAI model and the customer lookup plug into the agent.
+Here is the agent from our example. The OpenAI model, the memory and the customer lookup each plug into their own port.
 
 ## 35. Any node can be a tool
 
@@ -286,5 +285,4 @@ That connects back to part one: nodes, MCP and channels all feed agents.
 ## 36. Questions
 
 That's it from me. What questions do you have?
-Everything we skipped, like testing, error handling and local dev, is on the Notion "Nodes onboarding" page.
 You can always find us in #team-nodes.

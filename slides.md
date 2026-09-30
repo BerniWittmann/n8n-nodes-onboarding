@@ -282,7 +282,7 @@ layout: section
 
 # The running <span class="accent">example</span>
 
-<img src="/running-example.png" alt="Workflow: New email (Gmail Trigger) → From a customer? (IF) → Summarise email (AI Agent with OpenAI model and Customer lookup tool) → Post to #support (Slack)" class="example-shot" />
+<img src="/running-example.png" alt="Workflow: New email (Gmail Trigger) → From a customer? (IF) → Summarise email (AI Agent with OpenAI model, Memory and Customer lookup tool) → Post to #support (Slack)" class="example-shot" />
 
 <p class="text-center muted small mt-4">New customer email → decide → summarise with AI → notify the team</p>
 
@@ -499,24 +499,16 @@ layout: section
 <div class="flow mt-2">
   <div class="fstep"><div class="n">Activate</div><div class="t"><code>checkExists()</code></div><div class="d">Is our webhook already registered?</div></div>
   <div class="fstep"><div class="n">If not</div><div class="t"><code>create()</code></div><div class="d">Register our URL with the service</div></div>
-  <div class="fstep pink"><div class="n">On event</div><div class="t"><code>webhook()</code></div><div class="d">Verify, then emit items</div></div>
+  <div class="fstep pink"><div class="n">On event</div><div class="t"><code>webhook()</code></div><div class="d">Turn the request into items</div></div>
   <div class="fstep"><div class="n">Deactivate</div><div class="t"><code>delete()</code></div><div class="d">Unregister the webhook</div></div>
 </div>
 
 <p class="statement" style="margin-top:2.5rem">Publish registers, unpublish <span class="accent">cleans up.</span></p>
 <p class="text-center mt-3">The node describes the lifecycle. n8n calls it at the right time, so no subscription is left behind.</p>
 
-<div class="card mt-8 small-note"><h3>Also</h3><p>Services sign their requests. Check the signature in <code>webhook()</code> before you emit items. <span class="file-ref">nodes/GitHub/GithubTriggerHelpers.ts</span></p></div>
-
-<style>
-.small-note { padding: 0.7rem 1rem; }
-</style>
-
 <!--
 - The lifecycle lives in webhookMethods: checkExists / create / delete
 - create runs when the workflow is published or n8n starts, and only if checkExists returns false
-- Services sign requests: usually HMAC over the raw body (sometimes + timestamp) compared to a header
-- Compare with crypto.timingSafeEqual. On mismatch return empty workflowData so nothing runs
 - Example node: packages/nodes-base/nodes/Microsoft/Teams/MicrosoftTeamsTrigger.node.ts
 -->
 
@@ -1003,28 +995,33 @@ layout: section
 
 <div class="grid grid-cols-3 gap-6 items-center">
 <div class="col-span-2">
-
-```mermaid {scale: 1}
-flowchart LR
-  IN["From a customer? · true"] -- main --> AG["🤖 Summarise email"]
-  AG -- main --> OUT["Post to #support"]
-  LM["OpenAI"] -. ai_languageModel .-> AG
-  MEM["Simple Memory"] -. ai_memory .-> AG
-  T1["Customer lookup"] -. ai_tool .-> AG
-  T2["MCP Client tool"] -. ai_tool .-> AG
-```
-
+  <div class="shot">
+    <img src="/connection-types.png" alt="AI Agent node 'Summarise email' with main input and output, and OpenAI, Memory and Customer lookup sub-nodes attached below" />
+    <span class="tag main" style="left:25%;top:6%">main</span>
+    <span class="tag main" style="left:73%;top:6%">main</span>
+    <span class="tag ai" style="left:22%;top:43%">ai_languageModel</span>
+    <span class="tag ai" style="left:43%;top:50%">ai_memory</span>
+    <span class="tag ai" style="left:74%;top:43%">ai_tool</span>
+  </div>
 </div>
 <div>
   <ul>
-    <li>Regular nodes use <code>main</code></li>
-    <li>AI nodes add typed ports: <code>ai_languageModel</code>, <code>ai_memory</code>, <code>ai_tool</code>, <code>ai_vectorStore</code>…</li>
+    <li>Regular nodes connect with <code>main</code></li>
+    <li>AI nodes add typed ports below the agent</li>
     <li>Only matching types connect</li>
     <li>Sub-nodes implement <code>supplyData()</code>: they hand the agent a model, memory or tool, not items</li>
   </ul>
   <div class="file-ref mt-4">NodeConnectionTypes · packages/workflow/src/interfaces.ts</div>
 </div>
 </div>
+
+<style>
+.shot { position: relative; }
+.shot img { display: block; width: 100%; border-radius: 12px; border: 1px solid var(--border); }
+.shot .tag { position: absolute; transform: translate(-50%, -50%); font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 999px; white-space: nowrap; box-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+.shot .tag.main { background: #3a1826; color: #ffb3c4; border: 1px solid var(--n8n-pink); }
+.shot .tag.ai { background: #2a1d48; color: #d6c8ff; border: 1px solid var(--n8n-purple); }
+</style>
 
 <!--
 - 13 connection types today: main plus 12 ai_* types (agent, chain, document, embedding, languageModel, memory, outputParser, retriever, reranker, textSplitter, tool, vectorStore)
@@ -1063,13 +1060,10 @@ layout: end
   <img src="/n8n-logo-white.svg" class="cover-logo" alt="n8n" />
   <h1 class="cover-title">Questions<span class="accent">?</span></h1>
   <div class="cover-sub">Find us in <code>#team-nodes</code></div>
-  <div class="muted" style="font-size:0.85rem;letter-spacing:0;margin-top:0.5rem">Go deeper: Notion → Team Nodes → <strong>Nodes onboarding</strong> · docs.n8n.io → Build a node</div>
 </div>
 
 <!--
 - Open floor
-- Everything we skipped lives in the Notion "Nodes onboarding" page: testing, error handling, local dev, community nodes
-- Docs: https://docs.n8n.io/integrations/creating-nodes/build/
 - Remind: recording + slides are linked from the Notion onboarding page
 - Nodes-team joiners: team-specific sessions (PR reviews, bug bashes) follow separately
 -->
