@@ -203,8 +203,6 @@ layout: section
   <div class="card"><h2>Adore</h2><p class="muted">Code node, templates</p></div>
 </div>
 
-<p class="mt-4">Reach us: <code>#team-nodes</code> · reviews: <code>#team-nodes-review</code></p>
-
 <!--
 - Source: Notion "Engineering Teams - Areas of Ownership" (verified) plus the Team Nodes page
 - Nodes: first-party nodes, credentials, MCP registry, Local Gateway (browser + computer use); agent channels are our current project work
