@@ -34,10 +34,12 @@ jobs:
       # --download renders a PDF during the build, which needs Chromium
       - run: npx playwright install --with-deps chromium
 
-      - run: npm run build -- --base /${{ github.event.repository.name }}/ --download
-
+      # Pages decides the base path (project path on public sites, root on private org sites)
       - uses: actions/configure-pages@v6
+        id: pages
         if: github.event_name != 'pull_request'
+
+      - run: npm run build -- --base "${{ steps.pages.outputs.base_path }}/" --download
 
       - uses: actions/upload-pages-artifact@v5
         with:

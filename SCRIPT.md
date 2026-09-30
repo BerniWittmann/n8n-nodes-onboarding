@@ -59,6 +59,7 @@ The Local Gateway, which is browser use and computer use.
 And channels for first-class Agents.
 The second row shows our neighbours, so you know where to send things.
 Community nodes go to Community Engineering. Gateway credits go to Relay.
+Enterprise Nodes and Partnerships owns the strategic enterprise connectors, reviews partner-built nodes, and runs the self-hosted deployment setup.
 HTTP Request, Webhook and the execution engine belong to Catalysts. The Code node belongs to Adore.
 For anything of ours, ask in #team-nodes. For code reviews, use #team-nodes-review.
 

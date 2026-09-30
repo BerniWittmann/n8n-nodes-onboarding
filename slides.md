@@ -188,7 +188,7 @@ layout: section
 # What we <span class="accent">own</span>
 
 <div class="grid grid-cols-5 gap-3">
-  <div class="card pink"><span class="icon">🧩</span><h2>First-party nodes</h2><p>Slack, Google Sheets, HubSpot… 400+ built-in</p></div>
+  <div class="card pink"><span class="icon">🧩</span><h2>First-party nodes</h2><p>Slack, Sheets, HubSpot… 400+ built-in</p></div>
   <div class="card"><span class="icon">🔑</span><h2>Credentials</h2><p>Auth, OAuth flows, credential tests</p></div>
   <div class="card purple"><span class="icon">🔌</span><h2>MCP</h2><p>Registry, Client Tool, Server Trigger</p></div>
   <div class="card mint"><span class="icon">🌐</span><h2>Local Gateway</h2><p>Browser use, computer use</p></div>
@@ -196,17 +196,26 @@ layout: section
 </div>
 
 <h3 class="mt-6">Our neighbours</h3>
-<div class="grid grid-cols-4 gap-3">
-  <div class="card"><h2>Community Engineering</h2><p class="muted">Community nodes, community PRs</p></div>
-  <div class="card"><h2>Relay</h2><p class="muted">n8n Connect, AI Gateway</p></div>
+<div class="grid grid-cols-5 gap-3 nb">
+  <div class="card"><h2>Community Engineering</h2><p class="muted">Community PRs, verified community nodes</p></div>
+  <div class="card"><h2>Enterprise Nodes &amp; Partnerships</h2><p class="muted">Enterprise connectors, partner-built nodes, self-hosting</p></div>
+  <div class="card"><h2>Relay</h2><p class="muted">n8n Connect: AI Gateway, managed services</p></div>
   <div class="card"><h2>Catalysts</h2><p class="muted">HTTP Request, Webhook, execution engine</p></div>
   <div class="card"><h2>Adore</h2><p class="muted">Code node, templates</p></div>
 </div>
+
+<style>
+.nb .card { padding: 0.7rem 0.85rem; }
+.nb .card h2 { font-size: 0.86rem; }
+.nb .card p { font-size: 0.74rem; }
+</style>
 
 <!--
 - Source: Notion "Engineering Teams - Areas of Ownership" (verified) plus the Team Nodes page
 - Nodes: first-party nodes, credentials, MCP registry, Local Gateway (browser + computer use); agent channels are our current project work
 - Neighbours matter for routing: a bug in HTTP Request or Webhook goes to Catalysts, Code node to Adore, community nodes to Community Engineering, Gateway credits to Relay
+- Enterprise Nodes & Partnerships (Monetization domain, #team-enterprise-nodes-and-partnerships): strategic enterprise integrations and their production reliability, review and quality of partner-built nodes, partner-driven product work, and the self-hosted deployment surface (n8n-hosting, cloud marketplace one-click installs)
+- Rule of thumb: a first-party node is ours, unless it is one of the strategic enterprise connectors EN&P owns
 - 400+: packages/nodes-base/package.json registers 442 node files (actions and triggers) at n8n master @ 52db75973e
 - Questions and bugs: #team-nodes. PR reviews: #team-nodes-review
 -->
