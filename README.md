@@ -25,9 +25,9 @@ Learn more about Slidev in the [documentation](https://sli.dev/).
 
 ## Deployment
 
-The deck is published to GitHub Pages: <https://berniwittmann.github.io/n8n-nodes-onboarding/>. The site has a PDF download button.
+The deck is published to GitHub Pages: <https://n8n-io.github.io/nodes-onboarding-docs/>. The site has a PDF download button.
 
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main` and on manual dispatch. It runs `verify`, builds the site with `--base /n8n-nodes-onboarding/ --download`, and deploys it to Pages. Pull requests only build. The code-reference check is skipped in CI, because it needs an n8n checkout.
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main` and on manual dispatch. It runs `verify`, builds the site with `--download` and the base path from `actions/configure-pages`, and deploys it to Pages. Pull requests only build. The code-reference check is skipped in CI, because it needs an n8n checkout.
 
 ## Before presenting
 
