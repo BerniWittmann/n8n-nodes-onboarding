@@ -1,21 +1,38 @@
-# Nodes team — Engineering onboarding (Slidev deck)
+# Nodes team — Engineering onboarding
 
 A ~60 minute onboarding session for new engineers: who the Nodes team is, where n8n connects to the outside world, and how nodes work. It is built around one running example workflow (Gmail Trigger → IF → AI Agent → Slack).
 
-## Run
+Built with [Slidev](https://sli.dev). The theme is reused from the n8n Connect deck.
 
-```bash
-npm install
-npm run dev        # http://localhost:3030, presenter view with notes at /presenter
-npm run build      # static site in dist/
-npm run export     # PDF (playwright-chromium is a dev dependency)
-N8N_REPO=/path/to/n8n npm run verify   # slide count, code-block length, notes, SCRIPT.md, code refs
-```
+## Getting started
+
+To start the slide show:
+
+- `npm install`
+- `npm run dev`
+- visit <http://localhost:3030>
+
+Edit [slides.md](./slides.md) to see the changes. The presenter view with speaker notes is at <http://localhost:3030/presenter>.
+
+Learn more about Slidev in the [documentation](https://sli.dev/).
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Dev server with hot reload |
+| `npm run build` | Static site in `dist/` |
+| `npm run export` | PDF export (`playwright-chromium` is a dev dependency) |
+| `N8N_REPO=/path/to/n8n npm run verify` | Checks the slide count, code-block length, speaker notes, `SCRIPT.md` parity and code references |
+
+## Deployment
+
+The deck is published to GitHub Pages: <https://berniwittmann.github.io/nodes-onboarding-presentation/>. The site has a PDF download button.
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main` and on manual dispatch. It runs `verify`, builds the site with `--base /nodes-onboarding-presentation/ --download`, and deploys it to Pages. Pull requests only build. The code-reference check is skipped in CI, because it needs an n8n checkout.
 
 ## Before presenting
 
 - Put your name on slide 1 of `SCRIPT.md`.
-- Slides 11 and 34 are screenshots of a real workflow, "Onboarding: running example", in the personal project on berniwittmann.app.n8n.cloud. If you change the workflow, retake the screenshots into `public/running-example.png` and `public/connection-types.png` (the slide 34 tags are positioned by percentage). It was taken with the Slack missing-credential warning and the canvas controls hidden.
+- Slides 11 and 34 are screenshots of a real workflow, "Onboarding: running example", in my personal n8n instance. If you change the workflow, retake them into `public/running-example.png` and `public/connection-types.png`. The slide 34 tags are positioned by percentage. The screenshots were taken with the Slack missing-credential warning and the canvas controls hidden.
 - Slides stay light on purpose. Speaker notes (presenter view) hold the details and file paths. `SCRIPT.md` holds the spoken script for the recording.
 
 ## Layout
@@ -27,7 +44,7 @@ N8N_REPO=/path/to/n8n npm run verify   # slide count, code-block length, notes, 
 | `style.css`, `setup/mermaid.ts`, `public/n8n-*.svg` | n8n theme, copied unchanged from the n8n Connect deck |
 | `public/running-example.png`, `public/connection-types.png` | Canvas screenshots of the running example workflow (slides 11 and 34) |
 | `global-bottom.vue` | Footer, same as the Connect deck, with the label "Nodes team · Engineering onboarding" |
-| `scripts/verify.mjs` | Automated checks for the goal facts |
+| `scripts/verify.mjs` | Automated checks for the deck |
 
 `package.json` pins `floating-vue` to 5.3.0 through `overrides`. Slidev 53's twoslash client fails to patch FloatingVue 5.4 and logs a console error on every page.
 
