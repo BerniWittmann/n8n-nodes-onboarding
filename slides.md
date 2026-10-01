@@ -75,12 +75,7 @@ layout: section
 
 <div class="grid grid-cols-2 gap-10 items-center">
 <div>
-  <div class="meme">
-    <img src="https://media1.tenor.com/m/TedLBxWDekkAAAAC/buzz-woody.gif" alt="Buzz Lightyear shows Woody the view: integrations, integrations everywhere" />
-    <span class="cap top">Integrations</span>
-    <span class="cap bottom">Integrations everywhere</span>
-  </div>
-  <div class="file-ref mt-2">GIF via Tenor</div>
+  <img class="meme" src="/integrations-everywhere.jpg" alt="Toy Story meme: Buzz shows Woody the view. Integrations, integrations everywhere" />
 </div>
 <div>
   <p class="big-line">Wherever n8n connects to the <span class="accent">outside world</span>, that's us.</p>
@@ -94,11 +89,7 @@ layout: section
 </div>
 
 <style>
-.meme { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
-.meme img { display: block; width: 100%; }
-.meme .cap { position: absolute; left: 0; right: 0; text-align: center; font-weight: 900; font-size: 1.6rem; line-height: 1.1; text-transform: uppercase; color: #fff; letter-spacing: 0.02em; text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000; }
-.meme .cap.top { top: 0.6rem; }
-.meme .cap.bottom { bottom: 0.6rem; }
+.meme { display: block; width: 100%; border-radius: 12px; border: 1px solid var(--border); }
 .slidev-layout .heading-to { font-size: 2rem; font-weight: 900; letter-spacing: -0.03em; margin: 0; }
 </style>
 

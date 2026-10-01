@@ -37,8 +37,14 @@ headings.forEach((h, i) => h !== i + 1 && fail(`SCRIPT.md section ${i + 1} is nu
 
 // Code references resolve against the n8n repo
 if (n8nRepo) {
-	const text = slides.map((s) => `${s.source.content}\n${s.note ?? ''}`).join('\n');
-	const refs = new Set(text.match(/(?:packages\/[\w@./-]+|(?:nodes|credentials)\/[\w./-]+\.ts)/g));
+	// A <br/> right after a "/" splits one path over two lines, so join it; other <br/>s separate paths
+	const text = slides
+		.map((s) => `${s.source.content}\n${s.note ?? ''}`)
+		.join('\n')
+		.replace(/\/<br\s*\/?>/g, '/')
+		.replace(/<br\s*\/?>/g, ' ');
+	const refs = new Set(text.match(/\b(?:packages\/[\w@./-]+|(?:nodes|credentials)\/[\w./-]+\.ts)/g));
+	if (refs.size === 0) fail('no code refs found to check');
 	const bases = ['', 'packages/nodes-base', 'packages/@n8n/nodes-langchain'];
 	for (const ref of refs) {
 		const clean = ref.replace(/[.,)]+$/, '');

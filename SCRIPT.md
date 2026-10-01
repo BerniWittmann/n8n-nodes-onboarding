@@ -18,7 +18,7 @@ Ask questions any time. We also record this, so you can rewatch it later.
 Here are the six parts.
 Part one is the team and our ecosystem.
 Parts two to six are the engineering deep dive: how a node works, triggers, data flow, building nodes, and AI nodes.
-Some things we skip on purpose, like testing and local dev. You get links to them at the end.
+Some things we skip on purpose, like testing and local dev. The Notion "Nodes onboarding" page covers them.
 
 ## 3. Team & ecosystem (~10 min)
 
