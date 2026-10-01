@@ -674,7 +674,7 @@ return [trueItems, falseItems];
 <div class="col-span-3">
 
 <div class="if-out">
-  <div class="if-node"><span class="ic">⑂</span><b>From a customer?</b><span class="ty">IF</span></div>
+  <div class="if-node"><span class="ty">IF</span><b>From a customer?</b></div>
   <svg class="if-links" viewBox="0 0 60 100" preserveAspectRatio="none"><path class="t" d="M0 50 C30 50 30 21 60 21" /><path class="f" d="M0 50 C30 50 30 79 60 79" /></svg>
   <div class="branches">
     <div class="branch t"><div class="lbl">output 0 · true<span class="to">→ Summarise email</span></div><div class="row"><span class="it">Email A</span><span class="it">Email C</span></div></div>
@@ -690,9 +690,8 @@ return [trueItems, falseItems];
 <style>
 .if-out { display: grid; grid-template-columns: 9rem 3rem 1fr; align-items: center; height: 10rem; }
 .if-node { background: var(--surface); border: 1px solid var(--n8n-pink); border-radius: 12px; padding: 0.8rem; text-align: center; display: flex; flex-direction: column; gap: 0.25rem; }
-.if-node .ic { font-size: 1.4rem; color: #6ff0de; }
 .if-node b { color: var(--text); font-size: 0.85rem; }
-.if-node .ty { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: var(--text-dim); }
+.if-node .ty { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em; color: #6ff0de; }
 .if-links { width: 100%; height: 100%; }
 .if-links path { fill: none; stroke-width: 2; vector-effect: non-scaling-stroke; }
 .if-links .t { stroke: var(--n8n-mint); }
