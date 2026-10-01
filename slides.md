@@ -715,7 +715,7 @@ return [trueItems, falseItems];
 
 ---
 
-# The execute <span class="accent">loop</span>
+# The execute <span class="accent">loop</span> <span class="pill ml-2">↩ Slack</span>
 
 <div class="grid grid-cols-5 gap-8 items-center">
 <div class="col-span-3">
