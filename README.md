@@ -41,7 +41,7 @@ The deck is published to GitHub Pages: <https://n8n-io.github.io/nodes-onboardin
 | --- | --- |
 | `slides.md` | The deck: 36 slides in 6 numbered sections |
 | `SCRIPT.md` | Speakable script, one section per slide |
-| `style.css`, `setup/mermaid.ts`, `public/n8n-*.svg` | n8n theme, copied unchanged from the n8n Connect deck |
+| `style.css`, `setup/mermaid.ts`, `public/n8n-*.svg` | n8n theme from the n8n Connect deck. `style.css` is trimmed to the rules this deck uses |
 | `public/running-example.png`, `public/connection-types.png` | Canvas screenshots of the running example workflow (slides 11 and 34) |
 | `global-bottom.vue` | Footer, same as the Connect deck, with the label "Nodes team · Engineering onboarding" |
 | `scripts/verify.mjs` | Automated checks for the deck |

@@ -655,8 +655,8 @@ interface INodeExecutionData {
 
 # One array <span class="accent">per output</span> <span class="pill orange ml-2">↩ IF</span>
 
-<div class="grid grid-cols-2 gap-10 items-center">
-<div>
+<div class="grid grid-cols-5 gap-8 items-center">
+<div class="col-span-2">
 
 ```ts
 // return type of execute()
@@ -667,21 +667,45 @@ return [items];
 
 // IF: two outputs
 return [trueItems, falseItems];
+// → [[Email A, Email C], [Email B]]
 ```
 
 </div>
-<div>
+<div class="col-span-3">
 
-```mermaid {scale: 0.85}
-flowchart LR
-  I{"IF"} -- "output 0 · true" --> A["AI Agent"]
-  I -- "output 1 · false" --> X["(nothing)"]
-```
+<div class="if-out">
+  <div class="if-node"><span class="ic">⑂</span><b>From a customer?</b><span class="ty">IF</span></div>
+  <svg class="if-links" viewBox="0 0 60 100" preserveAspectRatio="none"><path class="t" d="M0 50 C30 50 30 21 60 21" /><path class="f" d="M0 50 C30 50 30 79 60 79" /></svg>
+  <div class="branches">
+    <div class="branch t"><div class="lbl">output 0 · true<span class="to">→ Summarise email</span></div><div class="row"><span class="it">Email A</span><span class="it">Email C</span></div></div>
+    <div class="branch f"><div class="lbl">output 1 · false<span class="to">→ not connected</span></div><div class="row"><span class="it">Email B</span></div></div>
+  </div>
+</div>
 
-<p class="mt-4">The description declares the outputs:<br/><code>outputs: [Main, Main]</code></p>
+<p class="mt-6">The description declares the outputs: <code>outputs: [Main, Main]</code></p>
 
 </div>
 </div>
+
+<style>
+.if-out { display: grid; grid-template-columns: 9rem 3rem 1fr; align-items: center; height: 10rem; }
+.if-node { background: var(--surface); border: 1px solid var(--n8n-pink); border-radius: 12px; padding: 0.8rem; text-align: center; display: flex; flex-direction: column; gap: 0.25rem; }
+.if-node .ic { font-size: 1.4rem; color: #6ff0de; }
+.if-node b { color: var(--text); font-size: 0.85rem; }
+.if-node .ty { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: var(--text-dim); }
+.if-links { width: 100%; height: 100%; }
+.if-links path { fill: none; stroke-width: 2; vector-effect: non-scaling-stroke; }
+.if-links .t { stroke: var(--n8n-mint); }
+.if-links .f { stroke: var(--text-dim); stroke-dasharray: 4 4; }
+.branches { display: flex; flex-direction: column; gap: 1.6rem; }
+.branch { height: 4.2rem; box-sizing: border-box; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 0.55rem 0.75rem; }
+.branch.t { border-color: rgba(0, 187, 167, 0.55); background: linear-gradient(160deg, rgba(0, 187, 167, 0.12), var(--surface) 70%); }
+.branch .lbl { display: flex; justify-content: space-between; white-space: nowrap; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.35rem; }
+.branch.t .lbl { color: #6ff0de; }
+.branch .row { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.branch .it { padding: 0.2rem 0.55rem; border-radius: 6px; background: rgba(255,255,255,0.06); border: 1px solid var(--border); color: var(--text); font-size: 0.78rem; }
+.branch .to { font-family: 'Inter', sans-serif; text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--text-muted); }
+</style>
 
 <!--
 - Outer array = output connections, inner array = the items on that output
